@@ -24,3 +24,7 @@ End result should be "I Iove Trees"
 Example: Output
 
     I Love Trees
+
+Extra added:
+- Sort if list contain random numbers
+- System argument pass 
