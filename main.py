@@ -20,7 +20,49 @@ def main(filename):
     """
     file_lines = load(filename)
     line_lst = sort_lines(file_lines)
-    print(file_lines)
+    
+    length = (len(line_lst) // 2)
+    
+    n = 0
+    count = 1
+    temp = 0
+    
+    row = " " * length
+    
+    for x in enumerate(line_lst):
+        for number, value in enumerate(line_lst):
+                        
+            if number == 0 and temp == 0:
+                row = row + str(number) + " "
+                n = n + 1
+                temp = temp + 1
+                count = count + 1
+                break
+            
+            if number >= temp and n <= count:
+                
+                if n == count:
+                    temp = number
+                
+                if number == n:
+                    temp = number
+                row = row + str(number) + " "
+                n = n + 1
+            
+            if n > count and number != n:
+                count = count + 1
+                temp = temp + 1
+                n = 1
+                break
+            
+        print(row)
+        length  = length - 1
+        row =  " " * length
+        
+        if length == 0:
+            break
+
+    print(f'{file_lines}')
 
 def load(file):
     """
