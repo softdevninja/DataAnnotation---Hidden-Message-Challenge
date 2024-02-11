@@ -22,27 +22,34 @@ def main(filename):
     line_lst = sort_lines(file_lines)
     
     length = (len(line_lst) // 2)
+    message = ""
     
     n = 0
     count = 1
     temp = 0
     
     row = " " * length
+    print(f' ')
     
     for x in enumerate(line_lst):
         for number, value in enumerate(line_lst):
-                        
+            
+            if count == len(line_lst) and number == 0:
+                break
+            
             if number == 0 and temp == 0:
                 row = row + str(number) + " "
                 n = n + 1
                 temp = temp + 1
                 count = count + 1
+                message = value.split(' ')[1] + " "
                 break
             
             if number >= temp and n <= count:
                 
                 if n == count:
                     temp = number
+                    message = message + value.split(' ')[1] + " "
                 
                 if number == n:
                     temp = number
@@ -53,16 +60,16 @@ def main(filename):
                 count = count + 1
                 temp = temp + 1
                 n = 1
-                break
-            
-        print(row)
+                break    
+        
+        print(f'{row}')
         length  = length - 1
         row =  " " * length
         
         if length == 0:
             break
-
-    print(f'{file_lines}')
+        
+    print(f'{"Hidden Message: " + message}')
 
 def load(file):
     """
