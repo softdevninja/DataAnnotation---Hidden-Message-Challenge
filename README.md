@@ -1,4 +1,4 @@
-DataAnnotation - Hidden Message Challenge
+#DataAnnotation - Hidden Message Challenge
 
 The idea is to be able to read a text file containing a set of desending numbers and random character string. Once read a hidden message should be revealed. 
 
